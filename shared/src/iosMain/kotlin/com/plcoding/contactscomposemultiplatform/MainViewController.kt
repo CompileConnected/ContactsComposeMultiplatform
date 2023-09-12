@@ -4,6 +4,7 @@ import androidx.compose.ui.interop.LocalUIViewController
 import androidx.compose.ui.window.ComposeUIViewController
 import com.plcoding.contactscomposemultiplatform.core.presentation.ImagePickerFactory
 import com.plcoding.contactscomposemultiplatform.di.AppModule
+import com.plcoding.contactscomposemultiplatform.di.DataStoreFactory
 import platform.UIKit.UIScreen
 import platform.UIKit.UIUserInterfaceStyle
 
@@ -15,6 +16,7 @@ fun MainViewController() = ComposeUIViewController {
         darkTheme = isDarkTheme,
         dynamicColor = false,
         appModule = AppModule(),
+        dataStoreFactory = DataStoreFactory(),
         imagePicker = ImagePickerFactory(LocalUIViewController.current).createPicker()
     )
 }

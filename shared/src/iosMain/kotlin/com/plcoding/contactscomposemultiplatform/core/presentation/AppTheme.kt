@@ -7,7 +7,7 @@ import com.plcoding.contactscomposemultiplatform.ui.theme.LightColorScheme
 import com.plcoding.contactscomposemultiplatform.ui.theme.Typography
 
 @Composable
-actual fun ContactsTheme(
+actual fun AppTheme(
     darkTheme: Boolean,
     dynamicColor: Boolean,
     content: @Composable () -> Unit

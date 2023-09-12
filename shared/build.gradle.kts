@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
     id("com.android.library")
     id("org.jetbrains.compose")
     id("com.squareup.sqldelight")
@@ -41,9 +42,27 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
 
+                implementation("co.touchlab:kermit:2.0.0-RC5")
+
+                implementation("androidx.datastore:datastore-core-okio:1.1.0-alpha04")
+                implementation("androidx.datastore:datastore-preferences-core:1.1.0-alpha04")
+
+                implementation("io.insert-koin:koin-core:3.4.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.2")
+                implementation("io.ktor:ktor-client-content-negotiation:2.3.2")
+                implementation("io.ktor:ktor-client-core:2.3.2")
+                implementation("io.ktor:ktor-client-logging:2.3.2")
+
+
                 implementation("com.squareup.sqldelight:runtime:1.5.5")
                 implementation("com.squareup.sqldelight:coroutines-extensions:1.5.5")
+
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation("br.com.devsrsouza.compose.icons:eva-icons:1.1.0")
+                implementation("cafe.adriel.voyager:voyager-navigator:1.0.0-rc06")
             }
         }
         val commonTest by getting {
@@ -53,6 +72,8 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+
+                implementation("io.ktor:ktor-client-android:2.3.2")
                 implementation("com.squareup.sqldelight:android-driver:1.5.5")
                 implementation("androidx.appcompat:appcompat:1.6.1")
                 implementation("androidx.activity:activity-compose:1.7.2")
@@ -64,6 +85,7 @@ kotlin {
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependencies {
+                implementation("io.ktor:ktor-client-darwin:2.3.2")
                 implementation("com.squareup.sqldelight:native-driver:1.5.5")
             }
             dependsOn(commonMain)
@@ -108,4 +130,6 @@ dependencies {
     commonMainApi("dev.icerock.moko:mvvm-compose:0.16.1")
     commonMainApi("dev.icerock.moko:mvvm-flow:0.16.1")
     commonMainApi("dev.icerock.moko:mvvm-flow-compose:0.16.1")
+    commonMainApi("dev.icerock.moko:biometry:0.4.0")
+    commonMainApi("dev.icerock.moko:biometry-compose:0.4.0")
 }

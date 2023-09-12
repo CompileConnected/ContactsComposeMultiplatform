@@ -5,7 +5,6 @@ import android.os.Build
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
@@ -17,7 +16,7 @@ import com.plcoding.contactscomposemultiplatform.ui.theme.LightColorScheme
 import com.plcoding.contactscomposemultiplatform.ui.theme.Typography
 
 @Composable
-actual fun ContactsTheme(
+actual fun AppTheme(
     darkTheme: Boolean,
     dynamicColor: Boolean,
     content: @Composable () -> Unit

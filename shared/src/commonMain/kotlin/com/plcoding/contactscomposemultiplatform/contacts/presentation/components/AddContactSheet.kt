@@ -30,6 +30,7 @@ import com.plcoding.contactscomposemultiplatform.contacts.domain.Contact
 import com.plcoding.contactscomposemultiplatform.contacts.presentation.ContactListEvent
 import com.plcoding.contactscomposemultiplatform.contacts.presentation.ContactListState
 import com.plcoding.contactscomposemultiplatform.core.presentation.BottomSheetFromWish
+import com.plcoding.contactscomposemultiplatform.core.presentation.SimpleOutlinedTextField
 
 @Composable
 fun AddContactSheet(
@@ -106,15 +107,24 @@ fun AddContactSheet(
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(Modifier.height(16.dp))
-                ContactTextField(
-                    value = newContact?.email ?: "",
-                    placeholder = "Email",
-                    error = state.emailError,
-                    onValueChanged = {
+                SimpleOutlinedTextField(
+                    label = "Email",
+                    input =  newContact?.email ?: "",
+                    onInput = {
                         onEvent(ContactListEvent.OnEmailChanged(it))
                     },
-                    modifier = Modifier.fillMaxWidth()
+                    error = state.emailError,
                 )
+
+//                ContactTextField(
+//                    value = newContact?.email ?: "",
+//                    placeholder = "Email",
+//                    error = state.emailError,
+//                    onValueChanged = {
+//                        onEvent(ContactListEvent.OnEmailChanged(it))
+//                    },
+//                    modifier = Modifier.fillMaxWidth()
+//                )
                 Spacer(Modifier.height(16.dp))
                 ContactTextField(
                     value = newContact?.phoneNumber ?: "",
